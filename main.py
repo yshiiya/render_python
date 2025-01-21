@@ -10,11 +10,6 @@ client = OpenAI()
 # DALL·E APIの設定
 dalle_api_key = os.getenv("OPENAI_API_KEY")
 
-# 新規追加： / エンドポイント
-@app.route("/", methods=["GET"])
-def root():
-    return jsonify({"message": "Welcome to the API. Use /generate-and-upload to generate images."}), 200
-
 @app.route('/generate-and-upload', methods=['POST'])
 def generate_and_upload():
     try:
